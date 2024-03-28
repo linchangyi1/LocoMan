@@ -127,76 +127,21 @@
   </div>
 </section>
 
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+  <div class="container">
 
-<!-- <section class="hero is-light is-small">
-  <div class="hero-body">
-    <div class="container">
-      <div id="results-carousel" class="carousel results-carousel">
-        <div class="item item-steve">
-          <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/steve.mp4"
-                    type="video/mp4">
-          </video>
+    <div class="columns is-centered has-text-centered">
+        <div class="publication-video">
+	      <iframe width="640" height="360" src="https://www.youtube.com/embed/mbUPNcHNKw0?si=767Mym9KpWisyK5d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
         </div>
-        <div class="item item-chair-tp">
-          <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/chair-tp.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-shiba">
-          <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/shiba.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-fullbody">
-          <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/fullbody.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-blueshirt">
-          <video poster="" id="blueshirt" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/blueshirt.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-mask">
-          <video poster="" id="mask" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/mask.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-coffee">
-          <video poster="" id="coffee" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/coffee.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-        <div class="item item-toby">
-          <video poster="" id="toby" autoplay controls muted loop playsinline height="100%">
-            <source src="./static/videos/toby2.mp4"
-                    type="video/mp4">
-          </video>
-        </div>
-      </div>
     </div>
   </div>
 </section> -->
 
-
 <section class="section">
-  <div class="container is-max-desktop">
-
-    <!-- Paper video. -->
-    <!-- <div class="columns is-centered has-text-centered">
-        <div class="publication-video">
-	      <iframe width="640" height="360" src="https://www.youtube.com/embed/mbUPNcHNKw0?si=767Mym9KpWisyK5d" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        </div>
-    </div> -->
-
-    
+  <!-- <div class="container is-max-desktop"> -->
+    <div class="container">    
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <!-- <div class="column is-four-fifths"> -->
@@ -241,9 +186,76 @@
     </div>
     <!--/ Abstract. -->
 	  
-	  
   </div>
 </section>
+
+
+<section class="section">
+  <div class="container is-centered has-text-centered">
+    <h2 class="title is-3">Design of Loco-Manipulator</h2>
+    <div class="content has-text-justified">
+      <p>
+        The core idea is to leverage the leg as an integral component of the "robotic arm" for executing 6D pose manipulation.
+        Therefore, we design Loco-Manipulator to contribute the other three DoFs.
+        Loco-Manipulator is compact, lightweight (147g), low-cost ($370), and easy-to-fabricate.
+        The main components are four commercially available servos (three for the joints and one for the gripper) and some 3d-printed parts.
+      </p>
+    </div>
+    <div class="columns">
+      <!-- Image column -->
+      <div class="column" style="flex: none; width: 60%;">
+        <img src="./static/images/design_half.png" alt="Design of Loco-Manipulator" style="margin-top: 42px;">
+      </div>
+      <!-- Video column -->
+      <div class="column">
+        <video id="render-video" controls autoplay muted loop>
+          <source src="./static/images/manipulator_render.mp4" type="video/mp4">
+        </video>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-centered has-text-centered">
+    <h2 class="title is-3">A Unified Whole-Body Control Framework</h2>
+    <div class="content has-text-justified">
+      <p>
+        The robot commander supports five different operation modes, namely locomotion, locomanipulation, single-foot manipulation, single-gripper manipulation, and bimanual manipulation.
+        Each mode takes in different user commands from either predefined planners, human motions, or joysticks, which are converted to desired states by a corresponding task commander in the Robot Commander.
+        Then the unified whole-body controller (WBC) tracks the desired state based on LocoMan's kinematics and dynamics model.
+      </p>
+    </div>
+    <div class="column">
+      <img src="./static/images/pipeline.png" >
+    </div>
+    </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-centered has-text-centered">
+    <h2 class="title is-3">Example of Teleoperation</h2>
+    <div class="content has-text-justified">
+      <p>
+        We develop a low-cost vision-based teleoperation platform to detect the motions of the human torso, palm, and thumb,
+        which are translated to command the 6D poses of LocoMan's torso and end effector, and the opening angle of its gripper.
+      </p>
+    </div>
+    <div class="column">
+      <video id="teleop-video" controls autoplay muted loop>
+        <source src="./static/images/Teleop.mp4" type="video/mp4">
+      </video>
+    </div>
+    </div>
+</section>
+
+
+
+
+
+
 
 <section class="section" id="BibTeX">
   <div class="container is-max-desktop content">
