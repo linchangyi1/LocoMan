@@ -33,7 +33,7 @@
    ```bash
    conda create -n locoman python=3.8
    ```
-#### Install dependencies:
+#### Install the dependencies:
    ```bash
    conda activate locoman
    pip install -e .
@@ -69,9 +69,14 @@ Note that the `numpy` version should be no later than `1.19.5` to avoid conflict
    ```
 
 #### Configurate the manipulators (only required for real robots with manipulators):
-1. Modify the baud rate and the latency:
-Follow the first two steps in the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316). Using Dynamixel Wizard interface, You need to relabel the ID of the motors, modify the BR to be 1000000, and set the return delay time to be 0. In addition, I modify the installed sdk with LATENCY_TIMER = 1 in the file /dynamixel_sdk/port_handler.py.
-2. Check the USBid and enable the device(modify the USBid based on the result of the first command):
+1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
+   - Relabel the ID of the motors;
+   - Modify the Baud Rate to be 1000000
+   - Set the return delay time to be 0
+
+2. I also modify the installed sdk with LATENCY_TIMER = 1 in the file /dynamixel_sdk/port_handler.py.
+
+3. Check the USBid and enable the device(modify the USBid based on the result of the first command):
    ```bash
    lsusb
    sudo chmod 777 /dev/ttyUSB0
