@@ -1,0 +1,23 @@
+Metadata-Version: 2.1
+Name: locoman
+Version: 1.0.0
+Summary: Toolkit for deployment of loco-manipulation algorithms on the Unitree Go1.
+Author: Changyi Lin
+Author-email: changyil@andrew.cmu.edu
+License: BSD-3-Clause
+Requires-Dist: ml_collections
+Requires-Dist: params_proto
+Requires-Dist: argparse
+Requires-Dist: gym
+Requires-Dist: tensorboard
+Requires-Dist: torch
+Requires-Dist: torchaudio
+Requires-Dist: torchvision
+Requires-Dist: tqdm
+Requires-Dist: filterpy
+Requires-Dist: dynamixel_sdk
+Requires-Dist: numpy
+Requires-Dist: quadprog
+Requires-Dist: pygame
+Requires-Dist: pyserial
+Requires-Dist: rospkg
