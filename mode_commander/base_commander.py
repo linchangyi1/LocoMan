@@ -31,7 +31,7 @@ class BaseCommander:
         self._wbc_command_scale.des_gripper_pva[0, :, 0:3] = self._cfg.commander.gripper_xyz_scale
         self._wbc_command_scale.des_gripper_pva[0, :, 3:6] = self._cfg.commander.gripper_rpy_scale
         self._wbc_command_scale.des_gripper_angles[:] = self._cfg.commander.gripper_angle_scale
-        self._wbc_command_range.des_torso_pva[0:2, :] = self._cfg.commander.real_limit.torso_pv_limit.reshape(2, 6) if self._cfg.sim.use_real_robot else self._cfg.commander.real_limit.torso_pv_limit.reshape(2, 6)
+        self._wbc_command_range.des_torso_pva[0:2, :] = self._cfg.commander.real_limit.torso_pv_limit.reshape(2, 6) if self._cfg.sim.use_real_robot else self._cfg.commander.sim_limit.torso_pv_limit.reshape(2, 6)
         self._wbc_command_range.des_gripper_angles[:] = self._cfg.commander.gripper_angle_range
 
         self._reset_manipulator_when_switch = self._cfg.commander.reset_manipulator_when_switch
