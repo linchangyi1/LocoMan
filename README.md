@@ -2,26 +2,26 @@
   LocoMan
 </h1> -->
 <h2 align="center">
-  LocoMan: Advancing Versatile Quadrupedal Dexterity with Lightweight Loco-Manipulators
+  LocoMan: Advancing Versatile Quadrupedal Dexterity with <br/>Lightweight Loco-Manipulators
 </h2>
 
 <div align="center">
-  <a href="https://linchangyi1.github.io/">Changyi Lin</a>,
-  <a href="https://xingyul.github.io/">Xingyu Liu</a>,
-  <a href="https://yxyang.github.io/">Yuxiang Yang</a>,
-  <a href="https://yaruniu.com/">Yaru Niu</a>,
+  <a href="https://linchangyi1.github.io/"><strong>Changyi Lin</strong></a>,
+  <a href="https://xingyul.github.io/"><strong>Xingyu Liu</strong></a>,
+  <a href="https://yxyang.github.io/"><strong>Yuxiang Yang</strong></a>,
+  <a href="https://yaruniu.com/"><strong>Yaru Niu</strong></a>,
   <br/>
-  <a href="https://wenhaoyu.weebly.com/">Wenhao Yu</a>,
-  <a href="https://research.google/people/tingnan-zhang/">Tingnan Zhang</a>,
-  <a href="https://www.jie-tan.net/">Jie Tan</a>,
-  <a href="https://homes.cs.washington.edu/~bboots/">Byron Boots</a>,
-  <a href="https://safeai-lab.github.io/people.html">Ding Zhao</a>
+  <a href="https://wenhaoyu.weebly.com/"><strong>Wenhao Yu</strong></a>,
+  <a href="https://research.google/people/tingnan-zhang/"><strong>Tingnan Zhang</strong></a>,
+  <a href="https://www.jie-tan.net/"><strong>Jie Tan</strong></a>,
+  <a href="https://homes.cs.washington.edu/~bboots/"><strong>Byron Boots</strong></a>,
+  <a href="https://safeai-lab.github.io/people.html"><strong>Ding Zhao</strong></a>
   <br/>
 </div>
 
 <p align="center">
-    <a href="https://linchangyi1.github.io/LocoMan/">Website</a> |
-    <a href="https://arxiv.org/abs/2403.18197">Paper</a>
+    <a href="https://linchangyi1.github.io/LocoMan/"><em>Website</em></a> |
+    <a href="https://arxiv.org/abs/2403.18197"><em>Paper</em></a>
 </p>
 
 
