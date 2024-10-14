@@ -39,8 +39,8 @@
 ## Table of contents
 1. [Overview](#overview)
 2. [Installation](#installation)
-3. [Usage](#usage)
-
+3. [Running in Simulation](#simulation)
+4. [Real Robot Deployment](#deployment)
 
 
 
@@ -48,7 +48,7 @@
 In this repository, we provide the open-source files for [LocoMan](https://linchangyi1.github.io/LocoMan/), including hardware **design** and **fabrication** files, as well as the code for both **simulation** and **real robot**.
 If you don't have a real robot, you can still play it in simulation.
 If you have a Unitree GO1 robot without loco-manipulators, you can use it for locomotion and foot-based manipulaiton.
-To achieve full functions on the real robot, please build a pair of loco-manipulators and
+To achieve full functions on the real robot, please build a pair of loco-manipulators.
 
 
 
@@ -69,7 +69,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 
 
 
-#### Install IsaacGym Preview 4 (only required for simulator):
+#### Install IsaacGym Preview 4 (required only for running in simulation):
 1. Download [IsaacGym](https://developer.nvidia.com/isaac-gym).
 2. Install IsaacGym for the locoman environment:
    ```bash
@@ -77,7 +77,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    ```
 3. Try running an example `cd examples && python 1080_balls_of_solitude.py`. The code is set to run on CPU so don't worry if you see an error about GPU not being utilized.
 
-#### Install Go1 SDK (only required for real robots):
+#### Install Go1 SDK (required only for deploying on a real robot):
 1. Download the SDK:
    ```bash
    cd locoman
@@ -96,7 +96,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    make
    ```
 
-#### Configure the manipulators (only required for real robots with manipulators):
+#### Configure the manipulators (required only for deploying on a real robot with manipulators):
 1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
    - Relabel the ID of the motors([1, 2, 3, 4] for the right manipulator and [5, 6, 7, 8] for the left one  );
    - Modify the Baud Rate to be 1000000
@@ -110,45 +110,53 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    sudo chmod 777 /dev/ttyUSB0
    ```
 
-
-## Usage <a name="usage"></a>
+## Running in Simulation <a name="simulation"></a>
 1. Run ROS:
    ```bash
    roscore
    ```
+2. Run Joystick (it's recommended to read the comments in [joystick.py](/teleoperation/joystick.py) for better understanding of the teleoperation process):
+   ```bash
+   python user_commander/joystick.py
+   ```
+3. Play LocoMan in Simulation:
+   - By default, the robot is equiped with two manipualtors. Run:
+      ```bash
+      python script/play_fsm.py
+      ```
+   - For playing a pure Go1 robot without manipulators, run:
+      ```bash
+      python script/play_fsm.py --use_gripper=False
+      ```
 
-2. Run Joystick:
+## Real Robot Deployment <a name="deployment"></a>
+1. Similar to running in simulaiton, run ROS and Joystick in separate terminals:
+   ```bash
+   roscore
+   ```
    ```bash
    python user_commander/joystick.py
    ```
 
-3. Play FSM in Simulation:
-   ```bash
-   python script/play_fsm.py  # for simulation with manipulators
-   python script/play_fsm.py --use_gripper=False  # for simulation without manipulators
-   ```
+2. Deploy on the Real Robot:
+   - **Without manipulators**: Run the following command directly:
+      ```bash
+      python script/play_fsm.py --use_real_robot=True --use_gripper=False
+      ```
+   - **With two manipulators**: Before running LocoMan, you need to initialize the manipulators.
+      - First, start the manipulators:
+         ```bash
+         python manipulator/run_manipulators.py
+         ```
+      - Then, run the FSM:
+         ```bash
+         python script/play_fsm.py --use_real_robot=True
+         ```
 
-4. Play FSM with a Real Robot:
-   If your robot doesn't have manipulators, directly run:
-   ```bash
-   python script/play_fsm.py --use_real_robot=True --use_gripper=False
-   ```
-
-   If your robot has manipulators, firstly run:
-   ```bash
-   python manipulator/run_manipulators.py
-   ```
-   and then:
-   ```bash
-   python script/play_fsm.py --use_real_robot=True
-   ```
 
 
 ## Acknowledgements
 This repository is developed with inspiration from these repositories: [CAJun](https://github.com/yxyang/cajun), [LEAP Hand](https://github.com/leap-hand/LEAP_Hand_API), and [Cheetah-Software](https://github.com/mit-biomimetics/Cheetah-Software/tree/master). We thank the authors for making the repos open source.
-
-
-<!-- REMEMBER to use the usage template from the multi-agent repo: https://github.com/ziyanx02/multiagent-quadruped-environment -->
 
 
 
