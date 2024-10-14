@@ -302,7 +302,6 @@ class Cfg(PrefixProto, cli=False):
             SERVER_HOST = '189.176.158.13'
             SERVER_PORT = 12345
             mode = 3  # 0:stance, 1:right-arm manipulation, 2: left-arm manipulation 3: bi-manual manipulation, 4:None
-            fsm_to_teleop_mode_mapping = [0, 1, 2, 1, 2, 4, 4, 3]
 
             # thresholds are used to filter out the human shaking and noise
             torso_xyz_threshold = 0.003

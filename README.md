@@ -33,18 +33,22 @@
 <img src="source/pipeline.png" alt="drawing" width=88%/>
 </p>
 
----
+<!-- --- -->
+<!-- <br/> -->
 
 ## Table of contents
 1. [Overview](#overview)
 2. [Installation](#installation)
-3. [Play LocoMan](#play)
+3. [Usage](#usage)
 
 
 
 
 ## Overview <a name="overview"></a>
-In this repository, we provide the open-source files including the hardware and code.
+In this repository, we provide the open-source files for [LocoMan](https://linchangyi1.github.io/LocoMan/), including hardware **design** and **fabrication** files, as well as the code for both **simulation** and **real robot**.
+If you don't have a real robot, you can still play it in simulation.
+If you have a Unitree GO1 robot without loco-manipulators, you can use it for locomotion and foot-based manipulaiton.
+To achieve full functions on the real robot, please build a pair of loco-manipulators and
 
 
 

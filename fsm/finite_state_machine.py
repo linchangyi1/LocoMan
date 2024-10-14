@@ -51,7 +51,10 @@ class FSM_Mapping(enum.Enum):
 
 def fsm_command_to_fsm_state_and_leg_index(command, with_gripper=True):
     (fsm_state, leg_index) = FSM_Mapping[FSM_Command(command).name].value
-    if not with_gripper and fsm_state == FSM_State.SG_MANIPULATION:
-        fsm_state = FSM_State.SF_MANIPULATION
+    if not with_gripper:
+        if fsm_state == FSM_State.SG_MANIPULATION:
+            fsm_state = FSM_State.SF_MANIPULATION
+        elif fsm_state == FSM_State.LOCOMANIPULATION:
+            fsm_state = FSM_State.LOCOMOTION
     return fsm_state, leg_index
 
