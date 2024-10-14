@@ -1,8 +1,8 @@
 from fsm.finite_state_machine import FSM_State, Single_Manipulation_Modes
 from robot.base_robot import BaseRobot
-from mode_switcher.single_manipulation_switcher import SingleManipSwitcher
-from mode_switcher.bi_manipulation_switcher import BimanipulationSwitcher
-from mode_switcher.loco_manipulation_switcher import LocoManipulationSwitcher
+from switcher.single_manipulation_switcher import SingleManipSwitcher
+from switcher.bi_manipulation_switcher import BimanipulationSwitcher
+from switcher.loco_manipulation_switcher import LocoManipulationSwitcher
 
 
 """FSMSwitcher generates the switcher for different FSM states."""

@@ -1,4 +1,4 @@
-from mode_commander.base_commander import BaseCommander
+from commander.base_commander import BaseCommander
 import numpy as np
 from fsm.finite_state_machine import FSM_State
 from utilities.orientation_utils_numpy import rpy_to_rot_mat, rot_mat_to_rpy

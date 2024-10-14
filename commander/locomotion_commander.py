@@ -1,4 +1,4 @@
-from mode_commander.base_commander import BaseCommander
+from commander.base_commander import BaseCommander
 import numpy as np
 from planner.gait_planner import GaitPlanner, LegState
 from planner.raibert_swing_leg_planner import RaibertSwingLegPlanner

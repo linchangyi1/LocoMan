@@ -1,4 +1,4 @@
-from mode_commander.base_commander import BaseCommander
+from commander.base_commander import BaseCommander
 import numpy as np
 
 

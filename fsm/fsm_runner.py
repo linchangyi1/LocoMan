@@ -3,14 +3,14 @@ from typing import List
 import torch
 from robot.motors import MotorCommand
 from fsm.fsm_switcher import FSMSwitcher
-from mode_switcher.bi_manipulation_switcher import BimanipulationSwitcher
+from switcher.bi_manipulation_switcher import BimanipulationSwitcher
 from fsm.fsm_commander import FSMCommander
 from wbc.whole_body_controller import WholeBodyController
 from wbc.wbc_command import WBCCommand
 import rospy
 from std_msgs.msg import Int32
 from fsm.finite_state_machine import FSM_State, FSM_Situation, fsm_command_to_fsm_state_and_leg_index, Manipulation_Modes, Locomotion_Modes
-from mode_commander.bi_manipulation_commander import BiManipCommander
+from commander.bi_manipulation_commander import BiManipCommander
 
 
 """FSMRunner manages the whole pipeline of the robot control system."""

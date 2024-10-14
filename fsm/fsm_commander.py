@@ -1,10 +1,10 @@
 from robot.base_robot import BaseRobot
-from mode_commander.stance_commander import StanceCommander
-from mode_commander.sf_manipulation_commander import SingleFootManipCommander
-from mode_commander.sg_manipulation_commander import SingleGripperManipCommander
-from mode_commander.locomotion_commander import LocomotionCommander
-from mode_commander.loco_manipulation_commander import LocoManipCommander
-from mode_commander.bi_manipulation_commander import BiManipCommander
+from commander.stance_commander import StanceCommander
+from commander.sf_manipulation_commander import SingleFootManipCommander
+from commander.sg_manipulation_commander import SingleGripperManipCommander
+from commander.locomotion_commander import LocomotionCommander
+from commander.loco_manipulation_commander import LocoManipCommander
+from commander.bi_manipulation_commander import BiManipCommander
 from fsm.finite_state_machine import FSM_State
 
 

@@ -1,4 +1,39 @@
-# LocoMan
+<!-- <h1 align="center">
+  LocoMan
+</h1> -->
+<h2 align="center">
+  LocoMan: Advancing Versatile Quadrupedal Dexterity with Lightweight Loco-Manipulators
+</h2>
+
+<div align="center">
+  <a href="https://linchangyi1.github.io/">Changyi Lin</a>,
+  <a href="https://xingyul.github.io/">Xingyu Liu</a>,
+  <a href="https://yxyang.github.io/">Yuxiang Yang</a>,
+  <a href="https://yaruniu.com/">Yaru Niu</a>,
+  <br/>
+  <a href="https://wenhaoyu.weebly.com/">Wenhao Yu</a>,
+  <a href="https://research.google/people/tingnan-zhang/">Tingnan Zhang</a>,
+  <a href="https://www.jie-tan.net/">Jie Tan</a>,
+  <a href="https://homes.cs.washington.edu/~bboots/">Byron Boots</a>,
+  <a href="https://safeai-lab.github.io/people.html">Ding Zhao</a>
+  <br/>
+</div>
+
+<p align="center">
+    <a href="https://linchangyi1.github.io/LocoMan/">Website</a> |
+    <a href="https://arxiv.org/abs/2403.18197">Paper</a>
+</p>
+
+
+
+<p align="center">
+<img src="source/design.png" alt="drawing" width=50%/>
+<br/>
+<br/>
+<img src="source/pipeline.png" alt="drawing" width=88%/>
+</p>
+
+---
 
 ## Table of contents
 1. [Overview](#overview)
@@ -9,37 +44,26 @@
 
 
 ## Overview <a name="overview"></a>
-**This repository provides open-source files of the paper:**
+In this repository, we provide the open-source files including the hardware and code.
 
-<!-- ![](source/pipelie.png) -->
-
-<b>LocoMan: Advancing Versatile Quadrupedal Dexterity with Lightweight Loco-Manipulators</b> <br>
-[Changyi Lin](https://linchangyi1.github.io/),
-[Xingyu Liu](https://xingyul.github.io/),
-[Yuxiang Yang](https://yxyang.github.io/),
-[Yaru Niu](https://yaruniu.com/),
-[Wenhao Yu](https://wenhaoyu.weebly.com/),
-[Tingnan Zhang](https://research.google/people/tingnan-zhang/),
-[Jie Tan](https://www.jie-tan.net/),
-[Byron Boots](https://homes.cs.washington.edu/~bboots/), and
-[Ding Zhao](https://safeai-lab.github.io/people.html) <br>
-*IROS 2024* <br>
-[Website](https://linchangyi1.github.io/LocoMan/) /
-[Paper](https://arxiv.org/abs/2403.18197)
 
 
 ## Installation <a name="installation"></a>
-#### Create a conda environment:
+#### Basic Requirements:
+1. Create a conda environment with python3.8:
    ```bash
    conda create -n locoman python=3.8
    ```
-#### Install the dependencies:
+2. Install the dependencies:
    ```bash
    conda activate locoman
    pip install -e .
    conda install pinocchio -c conda-forge
    ```
-Note that the `numpy` version should be no later than `1.19.5` to avoid conflict with the Isaac Gym utility files. But we can modify 'np.float' into 'np.float32' in the function 'get_axis_params' of the python file in 'isaacgym/python/isaacgym/torch_utils.py' to resolve the issue.
+   Note that the `numpy` version should be no later than `1.19.5` to avoid conflict with the Isaac Gym utility files. But we can modify 'np.float' into 'np.float32' in the function 'get_axis_params' of the python file in 'isaacgym/python/isaacgym/torch_utils.py' to resolve the issue.
+3. Install [ROS Neotic](https://wiki.ros.org/noetic/Installation/Ubuntu) on Ubuntu 20.04.
+
+
 
 #### Install IsaacGym Preview 4 (only required for simulator):
 1. Download [IsaacGym](https://developer.nvidia.com/isaac-gym).
@@ -68,9 +92,9 @@ Note that the `numpy` version should be no later than `1.19.5` to avoid conflict
    make
    ```
 
-#### Configurate the manipulators (only required for real robots with manipulators):
+#### Configure the manipulators (only required for real robots with manipulators):
 1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
-   - Relabel the ID of the motors;
+   - Relabel the ID of the motors([1, 2, 3, 4] for the right manipulator and [5, 6, 7, 8] for the left one  );
    - Modify the Baud Rate to be 1000000
    - Set the return delay time to be 0
 
@@ -83,7 +107,7 @@ Note that the `numpy` version should be no later than `1.19.5` to avoid conflict
    ```
 
 
-## Play LocoMan <a name="play"></a>
+## Usage <a name="usage"></a>
 1. Run ROS:
    ```bash
    roscore
@@ -114,6 +138,10 @@ Note that the `numpy` version should be no later than `1.19.5` to avoid conflict
    ```bash
    python script/play_fsm.py --use_real_robot=True
    ```
+
+
+## Acknowledgements
+This repository is developed with inspiration from these repositories: [CAJun](https://github.com/yxyang/cajun), [LEAP Hand](https://github.com/leap-hand/LEAP_Hand_API), and [Cheetah-Software](https://github.com/mit-biomimetics/Cheetah-Software/tree/master). We thank the authors for making the repos open source.
 
 
 <!-- REMEMBER to use the usage template from the multi-agent repo: https://github.com/ziyanx02/multiagent-quadruped-environment -->
