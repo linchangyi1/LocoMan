@@ -36,24 +36,25 @@
 <!-- --- -->
 <!-- <br/> -->
 
-## Table of contents
+## Table of Contents
 1. [Overview](#overview)
-2. [Installation](#installation)
-3. [Running in Simulation](#simulation)
-4. [Real Robot Deployment](#deployment)
-
+2. [Hardware Setup](#hardware)
+3. [Basic Installation](#basic_installation)
+4. [Running in Simulation](#simulation)
+   1. [Install Isaac Gym](#install_simulator)
+   2. [Play LocoMan in Simulator](#fsm_sim)
+5. [Real Robot Deployment](#deployment)
+   1. [Hardware Setup](#hardware)
+   2. [Install Go1 SDK](#install_sdk)
+   2. [Play LocoMan in Real World](#fsm_real)
+6. [Notes for Future Development](#notes)
 
 
 ## Overview <a name="overview"></a>
-In this repository, we provide the open-source files for [LocoMan](https://linchangyi1.github.io/LocoMan/), including hardware **design** and **fabrication** files, as well as the code for both **simulation** and **real robot**.
-If you don't have a real robot, you can still play it in simulation.
-If you have a Unitree GO1 robot without loco-manipulators, you can use it for locomotion and foot-based manipulaiton.
-To achieve full functions on the real robot, please build a pair of loco-manipulators.
+This repository provides the open-source files for [LocoMan](https://linchangyi1.github.io/LocoMan/), including hardware design and fabrication files, as well as the code for both simulation and real robot deployment.
 
 
-
-## Installation <a name="installation"></a>
-#### Basic Requirements:
+## Basic Installation <a name="basic_installation"></a>
 1. Create a conda environment with python3.8:
    ```bash
    conda create -n locoman python=3.8
@@ -64,53 +65,20 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    pip install -e .
    conda install pinocchio -c conda-forge
    ```
-   Note that the `numpy` version should be no later than `1.19.5` to avoid conflict with the Isaac Gym utility files. But we can modify 'np.float' into 'np.float32' in the function 'get_axis_params' of the python file in 'isaacgym/python/isaacgym/torch_utils.py' to resolve the issue.
+   Note that the `numpy` version should be no later than `1.19.5` to avoid conflict with the Isaac Gym utility files. But we can modify 'np.float' into 'np.float32' in the function 'get_axis_params' of the python file in 'isaacgym/python/isaacgym/torch_utils.py' to resolve the issue. So don't worry about the version requirement.
 3. Install [ROS Neotic](https://wiki.ros.org/noetic/Installation/Ubuntu) on Ubuntu 20.04.
 
 
-
-#### Install IsaacGym Preview 4 (required only for running in simulation):
-1. Download [IsaacGym](https://developer.nvidia.com/isaac-gym).
+## Running in Simulation <a name="simulation"></a>
+#### Install Isaac Gym <a name="install_simulator"></a>
+1. Download [IsaacGym Preview 4](https://developer.nvidia.com/isaac-gym).
 2. Install IsaacGym for the locoman environment:
    ```bash
    cd isaacgym/python && pip install -e .
    ```
 3. Try running an example `cd examples && python 1080_balls_of_solitude.py`. The code is set to run on CPU so don't worry if you see an error about GPU not being utilized.
 
-#### Install Go1 SDK (required only for deploying on a real robot):
-1. Download the SDK:
-   ```bash
-   cd locoman
-   git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
-   ```
-2. Make sure the required packages are installed, following Unitree's [guide](https://github.com/unitreerobotics/unitree_legged_sdk). Most nostably, please make sure to install `Boost` and `LCM`:
-   ```bash
-   sudo apt install libboost-all-dev liblcm-dev
-   pip install empy catkin_pkg
-   ```
-3. Then, go to the `unitree_legged_sdk` directory and build the libraries:
-   ```bash
-   cd unitree_legged_sdk
-   mkdir build && cd build
-   cmake -DPYTHON_BUILD=TRUE ..
-   make
-   ```
-
-#### Configure the manipulators (required only for deploying on a real robot with manipulators):
-1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
-   - Relabel the ID of the motors([1, 2, 3, 4] for the right manipulator and [5, 6, 7, 8] for the left one  );
-   - Modify the Baud Rate to be 1000000
-   - Set the return delay time to be 0
-
-2. I also modify the installed sdk with LATENCY_TIMER = 1 in the file /dynamixel_sdk/port_handler.py.
-
-3. Check the USBid and enable the device(modify the USBid based on the result of the first command):
-   ```bash
-   lsusb
-   sudo chmod 777 /dev/ttyUSB0
-   ```
-
-## Running in Simulation <a name="simulation"></a>
+#### Play LocoMan in Simulator <a name="fsm_sim"></a>
 1. Run ROS:
    ```bash
    roscore
@@ -129,7 +97,49 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
       python script/play_fsm.py --use_gripper=False
       ```
 
+
 ## Real Robot Deployment <a name="deployment"></a>
+### Hardware Setup <a name="hardware"></a>
+
+If you don't have a real robot, you can still play it in simulation.
+If you have a Unitree GO1 robot without loco-manipulators, you can use it for locomotion and foot-based manipulaiton.
+To achieve full functions on the real robot, please build a pair of loco-manipulators.
+
+##### Configure the manipulators:
+1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
+   - Relabel the ID of the motors([1, 2, 3, 4] for the right manipulator and [5, 6, 7, 8] for the left one  );
+   - Modify the Baud Rate to be 1000000
+   - Set the return delay time to be 0
+
+2. I also modify the installed sdk with LATENCY_TIMER = 1 in the file /dynamixel_sdk/port_handler.py.
+
+3. Check the USBid and enable the device(modify the USBid based on the result of the first command):
+   ```bash
+   lsusb
+   sudo chmod 777 /dev/ttyUSB0
+   ```
+
+
+#### Install Go1 SDK <a name="install_sdk"></a>
+1. Download the SDK:
+   ```bash
+   cd locoman
+   git clone https://github.com/unitreerobotics/unitree_legged_sdk.git
+   ```
+2. Make sure the required packages are installed, following Unitree's [guide](https://github.com/unitreerobotics/unitree_legged_sdk). Most nostably, please make sure to install `Boost` and `LCM`:
+   ```bash
+   sudo apt install libboost-all-dev liblcm-dev
+   pip install empy catkin_pkg
+   ```
+3. Then, go to the `unitree_legged_sdk` directory and build the libraries:
+   ```bash
+   cd unitree_legged_sdk
+   mkdir build && cd build
+   cmake -DPYTHON_BUILD=TRUE ..
+   make
+   ```
+
+#### Play LocoMan in Real World <a name="fsm_real"></a>
 1. Similar to running in simulaiton, run ROS and Joystick in separate terminals:
    ```bash
    roscore
