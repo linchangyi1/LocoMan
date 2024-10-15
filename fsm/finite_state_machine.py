@@ -49,7 +49,7 @@ class FSM_Mapping(enum.Enum):
     MANIPULATION_LEFT_FOOT = (FSM_State.SF_MANIPULATION, SingleLegIndex.LEFT)
     MANIPULATION_RIGHT_FOOT = (FSM_State.SF_MANIPULATION, SingleLegIndex.RIGHT)
 
-def fsm_command_to_fsm_state_and_leg_index(command, with_gripper=True):
+def fsm_command_to_fsm_state_and_leg_index(command, with_gripper):
     (fsm_state, leg_index) = FSM_Mapping[FSM_Command(command).name].value
     if not with_gripper:
         if fsm_state == FSM_State.SG_MANIPULATION:

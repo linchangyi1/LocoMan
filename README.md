@@ -38,16 +38,15 @@
 
 ## Table of Contents
 1. [Overview](#overview)
-2. [Hardware Setup](#hardware)
-3. [Basic Installation](#basic_installation)
-4. [Running in Simulation](#simulation)
-   1. [Install Isaac Gym](#install_simulator)
-   2. [Play LocoMan in Simulator](#fsm_sim)
-5. [Real Robot Deployment](#deployment)
+2. [Basic Installation](#basic_installation)
+3. [Running in Simulation](#simulation)
+   1. [Isaac Gym Installation](#install_simulator)
+   2. [Running LocoMan in Simulation](#fsm_sim)
+4. [Real Robot Deployment](#deployment)
    1. [Hardware Setup](#hardware)
-   2. [Install Go1 SDK](#install_sdk)
-   2. [Play LocoMan in Real World](#fsm_real)
-6. [Notes for Future Development](#notes)
+   2. [Go1 SDK Installation](#install_sdk)
+   2. [Running LocoMan in Real World](#fsm_real)
+5. [Notes for Future Development](#notes)
 
 
 ## Overview <a name="overview"></a>
@@ -65,29 +64,30 @@ This repository provides the open-source files for [LocoMan](https://linchangyi1
    pip install -e .
    conda install pinocchio -c conda-forge
    ```
-   Note that the `numpy` version should be no later than `1.19.5` to avoid conflict with the Isaac Gym utility files. But we can modify 'np.float' into 'np.float32' in the function 'get_axis_params' of the python file in 'isaacgym/python/isaacgym/torch_utils.py' to resolve the issue. So don't worry about the version requirement.
-3. Install [ROS Neotic](https://wiki.ros.org/noetic/Installation/Ubuntu) on Ubuntu 20.04.
+   Note that the `numpy` version should be no later than `1.19.5` to avoid conflict with the Isaac Gym utility files. But we can modify 'np.float' into 'np.float32' in the function 'get_axis_params' of the python file in 'isaacgym/python/isaacgym/torch_utils.py' to resolve the issue. So don't worry about the version limitation.
+3. Install [ROS Neotic](https://wiki.ros.org/noetic/Installation/Ubuntu) (we only test the code on Ubuntu 20.04).
 
 
 ## Running in Simulation <a name="simulation"></a>
-### Install Isaac Gym <a name="install_simulator"></a>
+### Isaac Gym Installation <a name="install_simulator"></a>
 1. Download [IsaacGym Preview 4](https://developer.nvidia.com/isaac-gym).
 2. Install IsaacGym for the locoman environment:
    ```bash
+   conda activate locoman
    cd isaacgym/python && pip install -e .
    ```
 3. Try running an example `cd examples && python 1080_balls_of_solitude.py`. The code is set to run on CPU so don't worry if you see an error about GPU not being utilized.
 
-### Play LocoMan in Simulator <a name="fsm_sim"></a>
+### Running LocoMan in Simulation <a name="fsm_sim"></a>
 1. Run ROS:
    ```bash
    roscore
    ```
 2. Run Joystick (it's recommended to read the comments in [joystick.py](/teleoperation/joystick.py) for better understanding of the teleoperation process):
    ```bash
-   python user_commander/joystick.py
+   python teleoperation/joystick.py
    ```
-3. Play LocoMan in Simulation:
+3. Running LocoMan in Simulation:
    - By default, the robot is equiped with two manipualtors. Run:
       ```bash
       python script/play_fsm.py
@@ -120,7 +120,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    ```
 
 
-### Install Go1 SDK <a name="install_sdk"></a>
+### Go1 SDK Installation <a name="install_sdk"></a>
 1. Download the SDK:
    ```bash
    cd locoman
@@ -139,13 +139,13 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    make
    ```
 
-### Play LocoMan in Real World <a name="fsm_real"></a>
+### Running LocoMan in Real World <a name="fsm_real"></a>
 1. Similar to running in simulaiton, run ROS and Joystick in separate terminals:
    ```bash
    roscore
    ```
    ```bash
-   python user_commander/joystick.py
+   python teleoperation/joystick.py
    ```
 
 2. Deploy on the Real Robot:
