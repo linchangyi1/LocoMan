@@ -70,7 +70,7 @@ This repository provides the open-source files for [LocoMan](https://linchangyi1
 
 
 ## Running in Simulation <a name="simulation"></a>
-#### Install Isaac Gym <a name="install_simulator"></a>
+### Install Isaac Gym <a name="install_simulator"></a>
 1. Download [IsaacGym Preview 4](https://developer.nvidia.com/isaac-gym).
 2. Install IsaacGym for the locoman environment:
    ```bash
@@ -78,7 +78,7 @@ This repository provides the open-source files for [LocoMan](https://linchangyi1
    ```
 3. Try running an example `cd examples && python 1080_balls_of_solitude.py`. The code is set to run on CPU so don't worry if you see an error about GPU not being utilized.
 
-#### Play LocoMan in Simulator <a name="fsm_sim"></a>
+### Play LocoMan in Simulator <a name="fsm_sim"></a>
 1. Run ROS:
    ```bash
    roscore
@@ -120,7 +120,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    ```
 
 
-#### Install Go1 SDK <a name="install_sdk"></a>
+### Install Go1 SDK <a name="install_sdk"></a>
 1. Download the SDK:
    ```bash
    cd locoman
@@ -139,7 +139,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
    make
    ```
 
-#### Play LocoMan in Real World <a name="fsm_real"></a>
+### Play LocoMan in Real World <a name="fsm_real"></a>
 1. Similar to running in simulaiton, run ROS and Joystick in separate terminals:
    ```bash
    roscore
