@@ -1,6 +1,6 @@
 from params_proto import PrefixProto
 import numpy as np
-from fsm.finite_state_machine import FSM_State
+from fsm.finite_state_machine import FSM_Command, FSM_State
 
 
 class Cfg(PrefixProto, cli=False):
@@ -178,8 +178,14 @@ class Cfg(PrefixProto, cli=False):
 
     class fsm(PrefixProto, cli=False):
         fsm_command_topic = "/fsm_command"
-        fsm_command_mapping = {'stance': 0, 'locomotion': 1, 'lg_mani': 2, 'rg_mani': 3,
-                               'bi_mani': 4, 'loco_mani': 5, 'lf_mani': 6, 'rf_mani': 7}
+        fsm_command_mapping = {'stance': FSM_Command.STANCE.value,
+                               'locomotion': FSM_Command.LOCOMOTION.value,
+                               'lg_mani': FSM_Command.MANIPULATION_LEFT_GRIPPER.value,
+                               'rg_mani': FSM_Command.MANIPULATION_RIGHT_GRIPPER.value,
+                               'bi_mani': FSM_Command.BIMANIPULATION.value,
+                               'loco_mani': FSM_Command.LOCOMANIPULATION.value,
+                               'lf_mani': FSM_Command.MANIPULATION_LEFT_FOOT.value,
+                               'rf_mani': FSM_Command.MANIPULATION_RIGHT_FOOT.value}
 
     class commander(PrefixProto, cli=False):
         eef_task_space = 'world'
@@ -202,6 +208,9 @@ class Cfg(PrefixProto, cli=False):
         class real_limit(PrefixProto, cli=False):
             torso_pv_limit = np.array([0.06, 0.06, 0.2, 0.3, 0.3, 0.4, 0.2, 0.2, 0, 0, 0, 0.3])
 
+        # bi-manipulation may destroy the robot if the trajectory is not well collected
+        # so be careful to unlock it after testing in simulation
+        lock_real_robot_bimanual = False
 
     class switcher(PrefixProto, cli=False):
         min_switch_interval = 3.0 # minimum time interval between two switches

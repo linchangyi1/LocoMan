@@ -174,7 +174,7 @@ Build two loco-manipulators according to our [Hardware Guide](https://docs.googl
       ```bash
       python script/play_fsm.py --use_real_robot=True --use_gripper=False
       ```
-   - **With two manipulators**: Before running LocoMan, you need to initialize the manipulators.
+   - **With manipulators**: Before running LocoMan, you need to initialize the manipulators.
       - First, start the manipulators:
          ```bash
          python manipulator/run_manipulators.py

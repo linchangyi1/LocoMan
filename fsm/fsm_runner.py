@@ -9,7 +9,7 @@ from wbc.whole_body_controller import WholeBodyController
 from wbc.wbc_command import WBCCommand
 import rospy
 from std_msgs.msg import Int32
-from fsm.finite_state_machine import FSM_State, FSM_Situation, fsm_command_to_fsm_state_and_leg_index, Manipulation_Modes, Locomotion_Modes
+from fsm.finite_state_machine import FSM_State, FSM_Command, FSM_Situation, fsm_command_to_fsm_state_and_leg_index, Manipulation_Modes, Locomotion_Modes
 from commander.bi_manipulation_commander import BiManipCommander
 
 
@@ -57,6 +57,7 @@ class FSMRunner:
                         desired_extra_torque=torch.zeros((self._robot._num_envs, self._robot._num_joints), device=self._robot._device))
 
         # action for bimanipulation
+        self._lock_bimanual = self._cfg.sim.use_real_robot and self._cfg.commander.lock_real_robot_bimanual
         self._bimanual_action = MotorCommand(desired_position=torch.zeros((self._robot._num_envs, self._robot._num_joints), device=self._robot._device),
                         kp=self._kps,
                         desired_velocity=torch.zeros((self._robot._num_envs, self._robot._num_joints), device=self._robot._device),
@@ -101,7 +102,14 @@ class FSMRunner:
 
     def _fsm_command_callback(self, msg: Int32):
         if self._robot._fsm_situation == FSM_Situation.NORMAL:
-            self._fsm_state_buffer, self._single_leg_idx_buffer = fsm_command_to_fsm_state_and_leg_index(msg.data, self._robot._use_gripper)
+            if self._lock_bimanual and FSM_Command(msg.data).name == 'BIMANIPULATION':
+                msg.data = FSM_Command.MANIPULATION_RIGHT_FOOT.value
+            self._fsm_state_buffer, self._single_leg_idx_buffer = fsm_command_to_fsm_state_and_leg_index(msg.data)
+            if not self._robot._use_gripper:
+                if self._fsm_state_buffer == FSM_State.SG_MANIPULATION:
+                    self._fsm_state_buffer = FSM_State.SF_MANIPULATION
+                elif self._fsm_state_buffer == FSM_State.LOCOMANIPULATION:
+                    self._fsm_state_buffer = FSM_State.LOCOMOTION
 
     def step(self):
         # Bi-manipulation is a special case since we use the transition trajectory from Unitree's controller and lock the rear joints during manipulation

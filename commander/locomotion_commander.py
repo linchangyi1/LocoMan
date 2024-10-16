@@ -19,10 +19,9 @@ class LocomotionCommander(BaseCommander):
         super().reset()
         self._gait_generator.reset()
         self._swing_leg_controller.reset()
-
         self._wbc_command.des_torso_pva[0, :] = self._cfg.locomotion.desired_pose
         self._wbc_command.des_torso_pva[1, :] = self._cfg.locomotion.desired_velocity
-        torso_height = self._robot.torso_pos_w_np[self._env_ids, 2]  # don't use average foot height that is "foot_radius" smaller than the real torso height
+        torso_height = -np.mean(self._robot.foot_pos_b_np[self._env_ids, :, 2]) + 0.01  # 0.01 is the foot compensation
         self._swing_leg_controller._foot_height = (torso_height / self._wbc_command.des_torso_pva[0, 2]) * self._cfg.locomotion.foot_height
         self._wbc_command.des_torso_pva[0, 2] = torso_height
 

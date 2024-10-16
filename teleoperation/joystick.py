@@ -33,7 +33,7 @@ The joystick inputs are mapped to the following commands:
 The script will publish the FSM command and the action command to the corresponding topics.
 The FSM command is published as an Int32.
 The action command is published as a Float32MultiArray with the following order:
-[x_1, y_1, z_1, roll_1, pitch_1, yaw_1, x_2, y_2, z_2, roll_2, pitch_2, yaw_2, gripper_signal]
+[x_1, y_1, z_1, roll_1, pitch_1, yaw_1, x_2, y_2, z_2, roll_2, pitch_2, yaw_2, gripper_signals]
 
 
 We define the following input orders for the joysticks:
@@ -148,7 +148,11 @@ class JoystickTeleoperator():
         self.command[:] = 0
         cmd_start_idx = 0 if self.command_inpute_for_torso else 6
         self.command[cmd_start_idx:cmd_start_idx+6] = np.array([x, y, z, roll, pitch, yaw])
-        self.command[-1] = gripper_signal
+        if self.fsm_command_msg.data == self.fsm_command_mapping['bi_mani']:
+            grp_idx = 0 if self.command_inpute_for_torso else 1
+            self.command[12+grp_idx] = gripper_signal
+        else:
+            self.command[12:14] = gripper_signal
         self.command[abs(self.command) < 0.1] = 0
         self.command_msg.data = self.command.tolist()
         self.command_publisher.publish(self.command_msg)
