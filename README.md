@@ -104,17 +104,17 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 
 ### Material Preparation
 
-| Part                                      | Description                              | Price (per unit) | Quantity |
-|-------------------------------------------|-----------------------------------|--------------|----------|
-| [DYNAMIXEL XC330-T288-T](https://www.robotis.us/dynamixel-xc330-t288-t/)                    |-----------------------------------| $89.90           | 8        |
-| [DYNAMIXEL U2D2](https://www.robotis.us/u2d2/)                            |-----------------------------------| $32.10           | 1        |
-| [3P JST Expansion Board](https://www.robotis.us/3p-jst-expansion-board/)                    |-----------------------------------| $5.90            | 1        |
-| [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm)                |-----------------------------------| $8.19            | 1        |
-| [24V to 12V 10A Converter](https://a.co/d/bhacse1)                  |-----------------------------------| $9.75            | 1        |
-| [30cm XT30 Connector (2pcs)](https://a.co/d/2ftzIKc)                |-----------------------------------| $8.59            | 1        |
-| [100cm 3 Pin JST Cable (5pcs)](https://a.co/d/86x52YO)              |-----------------------------------| $10.19           | 1        |
-| [20ft USB Extension Cable (optional)](https://a.co/d/3ieBPJI)       |-----------------------------------| $18.99           | 1        |
-| [20ft Ethernet Cable (optional)](https://a.co/d/bZTsqN4)            |-----------------------------------| $18.99           | 1        |
+| ID | Part                                      | Description                              | Price (per unit) | Quantity |
+|-----|-------------------------------------------|-----------------------------------|--------------|----------|
+| 1-8 | [DYNAMIXEL XC330-T288-T](https://www.robotis.us/dynamixel-xc330-t288-t/) | Servos for the manipulators | $89.90 | 8 |
+| 9 | [DYNAMIXEL U2D2](https://www.robotis.us/u2d2/) | Convert control signals from PC to servos | $32.10 | 1 |
+| 10| [3P JST Expansion Board](https://www.robotis.us/3p-jst-expansion-board/) | Combine control signal and power to the manipulators | $5.90 | 1 |
+| 11| [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm) | Bearings for the rotational gripper | $8.19 | 1 |
+| 12| [24V to 12V 10A Converter](https://a.co/d/bhacse1) | Convert 24V power from Go1 to 12V for the manipulators | $9.75 | 1 |
+| 13| [30cm XT30 Connector (2pcs)](https://a.co/d/2ftzIKc) | Connect Go1 power supply to the converter | $8.59 | 1 |
+| 14 | [100cm 3 Pin JST Cable (5pcs)](https://a.co/d/86x52YO) | Connect manipulators to the expansion board | $10.19 | 1 |
+| 15 | [20ft USB Extension Cable](https://a.co/d/3ieBPJI) | Connect PC to U2D2 | $18.99 | 1 |
+| 16 | [20ft Ethernet Cable](https://a.co/d/bZTsqN4) | Connect PC to Go1 | $18.99 | 1 |
 
 
 
