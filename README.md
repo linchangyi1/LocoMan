@@ -2,7 +2,7 @@
   LocoMan
 </h1> -->
 <h2 align="center">
-  LocoMan: Advancing Versatile Quadrupedal Dexterity with <br/>Lightweight Loco-Manipulators
+  LocoMan: Advancing Versatile Quadrupedal Dexterity with Lightweight Loco-Manipulators
 </h2>
 
 <div align="center">
@@ -27,10 +27,10 @@
 
 
 <p align="center">
-<img src="source/design.png" alt="drawing" width=50%/>
+<img src="source/design.png" alt="drawing" width=60%/>
 <br/>
 <br/>
-<img src="source/pipeline.png" alt="drawing" width=88%/>
+<img src="source/pipeline.png" alt="drawing" width=100%/>
 </p>
 
 <!-- --- -->
