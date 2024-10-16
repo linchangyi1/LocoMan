@@ -99,11 +99,30 @@ This repository provides the open-source files for [LocoMan](https://linchangyi1
 
 
 ## Real Robot Deployment <a name="deployment"></a>
-### Hardware Setup <a name="hardware"></a>
-
-If you don't have a real robot, you can still play it in simulation.
 If you have a Unitree GO1 robot without loco-manipulators, you can use it for locomotion and foot-based manipulaiton.
 To achieve full functions on the real robot, please build a pair of loco-manipulators.
+
+### Material Preparation
+
+| Part                                      | Link                              | Price (unit) | Quantity |
+|-------------------------------------------|-----------------------------------|--------------|----------|
+| DYNAMIXEL XC330-T288-T                    | [https://www.robotis.us](https://www.robotis.us)  | $89.90       | 8        |
+| U2D2                                      | [https://www.robotis.us](https://www.robotis.us)  | $32.10       | 1        |
+| 3P JST Expansion Board                    | [https://www.robotis.us](https://www.robotis.us)  | $5.90        | 1        |
+| Bearings 5x8x2.5mm (10pcs)                | [https://amazon.com](https://amazon.com)          | $8.19        | 1        |
+| 24V to 12V 10A Converter                  | [https://amazon.com](https://amazon.com)          | $9.75        | 1        |
+| 30cm XT30 Connector (2pcs)                | [https://amazon.com](https://amazon.com)          | $8.59        | 1        |
+| 100cm 3 Pin JST Cable (5pcs)              | [https://amazon.com](https://amazon.com)          | $10.19       | 1        |
+| 20ft USB Extension Cable (optional)       | [https://amazon.com](https://amazon.com)          | $18.99       | 1        |
+| 20ft Ethernet Cable (optional)            | [https://amazon.com](https://amazon.com)          | $18.99       | 1        |
+
+
+### Hardware Setup <a name="hardware"></a>
+
+
+Build two loco-manipulators according to our [Hardware Guide](https://docs.google.com/document/d/1ezbiHfkx8hN_0iZrRt7Yo31gfz1KlZ5sO7tAXYdfni4/edit?usp=sharing).
+
+
 
 ##### Configure the manipulators:
 1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
