@@ -99,7 +99,8 @@ This repository provides the open-source files for [LocoMan](https://linchangyi1
 
 
 ## Real Robot Deployment <a name="deployment"></a>
-If you have a Unitree GO1 robot without loco-manipulators, you can use it for locomotion and foot-based manipulaiton.
+If you have a Unitree GO1 robot but don't plan to build the loco-manipulators, you can skip the hardware setup and use this repo for locomotion and foot-based manipulaiton.
+<br/>
 To achieve full functions on the real robot, please build a pair of loco-manipulators.
 
 ### Material Preparation
