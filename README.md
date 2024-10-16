@@ -104,17 +104,17 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 
 ### Material Preparation
 
-| Part                                      | Link                              | Price (unit) | Quantity |
+| Part                                      | Description                              | Price (per unit) | Quantity |
 |-------------------------------------------|-----------------------------------|--------------|----------|
-| DYNAMIXEL XC330-T288-T                    | [https://www.robotis.us](https://www.robotis.us/dynamixel-xc330-t288-t/)  | $89.90       | 8        |
-| U2D2                                      | [https://www.robotis.us](https://www.robotis.us/u2d2/)  | $32.10       | 1        |
-| 3P JST Expansion Board                    | [https://www.robotis.us](https://www.robotis.us/3p-jst-expansion-board/)  | $5.90        | 1        |
-| Bearings 5x8x2.5mm (10pcs)                | [https://amazon.com](https://a.co/d/0Kc5usm)          | $8.19        | 1        |
-| 24V to 12V 10A Converter                  | [https://amazon.com](https://a.co/d/bhacse1)          | $9.75        | 1        |
-| 30cm XT30 Connector (2pcs)                | [https://amazon.com](https://a.co/d/2ftzIKc)          | $8.59        | 1        |
-| 100cm 3 Pin JST Cable (5pcs)              | [https://amazon.com](https://a.co/d/86x52YO)          | $10.19       | 1        |
-| 20ft USB Extension Cable (optional)       | [https://amazon.com](https://a.co/d/3ieBPJI)          | $18.99       | 1        |
-| 20ft Ethernet Cable (optional)            | [https://amazon.com](https://a.co/d/bZTsqN4)          | $18.99       | 1        |
+| [DYNAMIXEL XC330-T288-T](https://www.robotis.us/dynamixel-xc330-t288-t/)                    |-----------------------------------| $89.90           | 8        |
+| [DYNAMIXEL U2D2](https://www.robotis.us/u2d2/)                            |-----------------------------------| $32.10           | 1        |
+| [3P JST Expansion Board](https://www.robotis.us/3p-jst-expansion-board/)                    |-----------------------------------| $5.90            | 1        |
+| [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm)                |-----------------------------------| $8.19            | 1        |
+| [24V to 12V 10A Converter](https://a.co/d/bhacse1)                  |-----------------------------------| $9.75            | 1        |
+| [30cm XT30 Connector (2pcs)](https://a.co/d/2ftzIKc)                |-----------------------------------| $8.59            | 1        |
+| [100cm 3 Pin JST Cable (5pcs)](https://a.co/d/86x52YO)              |-----------------------------------| $10.19           | 1        |
+| [20ft USB Extension Cable (optional)](https://a.co/d/3ieBPJI)       |-----------------------------------| $18.99           | 1        |
+| [20ft Ethernet Cable (optional)](https://a.co/d/bZTsqN4)            |-----------------------------------| $18.99           | 1        |
 
 
 
