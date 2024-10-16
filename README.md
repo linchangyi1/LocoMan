@@ -119,6 +119,7 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 | 14 | [20ft Ethernet Cable](https://a.co/d/bZTsqN4) | Connect PC to Go1 | $18.99 | 1 |
 | 15 | [20ft USB Extension Cable](https://a.co/d/3ieBPJI) | Connect PC to U2D2 | $18.99 | 1 |
 | 16 | [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm) | Bearings for the rotational gripper | $8.19 | 1 |
+| 17 | [Screws and nuts]() | Used for manipulator assembly | $ |1|
 
 
 

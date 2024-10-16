@@ -168,6 +168,7 @@ class Cfg(PrefixProto, cli=False):
         curr_lim = 900
         gripper_delta_max = 0.2
         # real_pos = sim_pos * s2r_scale + s2r_offset
+        # non-zero offset aims to have all servos operate in the range of [0, 2 * pi] in real robot, which can avoid inverse motion due to the defaut design of dynamixel sdk
         s2r_scale = np.array([-1.0, 1.0, -1.0, 1.0, 1.0, 1.0, -1.0, 1.0])
         s2r_offset = np.array([-np.pi, 0.0, 0.0, 0.0, np.pi, 0.0, 0.0, 0.0])
 
