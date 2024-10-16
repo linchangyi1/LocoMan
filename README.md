@@ -103,7 +103,9 @@ If you have a Unitree GO1 robot but don't plan to build the loco-manipulators, y
 <br/>
 To achieve full functions on the real robot, please build a pair of loco-manipulators.
 
-### Material Preparation
+### Hardware Setup <a name="hardware"></a>
+
+1. Prepare the following materials:
 
 | ID | Part                                      | Description                              | Price (per unit) | Quantity |
 |----|-------------------------------------------|-----------------------------------|--------------|----------|
@@ -113,13 +115,10 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 | 11 | [100cm 3 Pin JST Cable (5pcs)](https://a.co/d/86x52YO) | Connect manipulators to the expansion board | $10.19 | 1 |
 | 12 | [24V to 12V 10A Converter](https://a.co/d/bhacse1) | Convert 24V power from Go1 to 12V for the manipulators | $9.75 | 1 |
 | 13 | [30cm XT30 Connector (2pcs)](https://a.co/d/2ftzIKc) | Connect Go1 power supply to the converter | $8.59 | 1 |
-| 14 | [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm) | Bearings for the rotational gripper | $8.19 | 1 |
-| 15 | [20ft USB Extension Cable](https://a.co/d/3ieBPJI) | Connect PC to U2D2 | $18.99 | 1 |
-| 16 | [20ft Ethernet Cable](https://a.co/d/bZTsqN4) | Connect PC to Go1 | $18.99 | 1 |
+| 14 | [20ft USB Extension Cable](https://a.co/d/3ieBPJI) | Connect PC to U2D2 | $18.99 | 1 |
+| 15 | [20ft Ethernet Cable](https://a.co/d/bZTsqN4) | Connect PC to Go1 | $18.99 | 1 |
+| 16 | [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm) | Bearings for the rotational gripper | $8.19 | 1 |
 
-
-
-### Hardware Setup <a name="hardware"></a>
 
 
 Build two loco-manipulators according to our [Hardware Guide](https://docs.google.com/document/d/1ezbiHfkx8hN_0iZrRt7Yo31gfz1KlZ5sO7tAXYdfni4/edit?usp=sharing).
