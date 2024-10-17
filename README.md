@@ -105,7 +105,8 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 
 ### Hardware Setup <a name="hardware"></a>
 
-1. Prepare the following materials:
+#### Bill of Materials:
+To start with, prepare the following materials. Note that for more convenient servo configuration, you may choose to purchase the [DYNAMIXEL Starter Set](https://www.robotis.us/dynamixel-starter-set-us/) instead of only the DYNAMIXEL U2D2 (ID 9 in the BOM).
 
 | ID | Part                                      | Description                              | Price (per unit) | Quantity |
 |----|-------------------------------------------|-----------------------------------|--------------|----------|
@@ -119,20 +120,25 @@ To achieve full functions on the real robot, please build a pair of loco-manipul
 | 14 | [20ft Ethernet Cable](https://a.co/d/bZTsqN4) | Connect PC to Go1 | $18.99 | 1 |
 | 15 | [20ft USB Extension Cable](https://a.co/d/3ieBPJI) | Connect PC to U2D2 | $18.99 | 1 |
 | 16 | [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm) | Bearings for the rotational gripper | $8.19 | 1 |
-| 17 | [Screws and nuts]() | Used for manipulator assembly | $ |1|
+| 17 | [M2 Screws: 22x4cm, 16x6cm, 40x10cm; Nuts: 8xM2](https://a.co/d/6fwfDas) | Used for manipulator assembly | $8.29 |1|
+| 18 | [M2.5 Screws: 2x10cm, 2x6cm](https://a.co/d/dnSxZVM) | Used for manipulator assembly | $11.99 |1|
+| 19 | [Spring Washer: 24xM2, 2xM2.5](https://a.co/d/fyb38Bh) | Used for manipulator assembly | $9.99 |1|
+| 20 | [Joystick (optional)](https://a.co/d/8otPZM6) | Read [joystick.py](/teleoperation/joystick.py) and choose a joystick |  |1|
+| 21 | [Printed parts](/locoman_hardware/print) | 3D print the parts |  |1|
+
+#### Configure the servos:
+Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
+
+1. Relabel the ID of the motors ([1, 2, 3, 4] for the **right** manipulator and [5, 6, 7, 8] for the **left** one  );
+2. Modify the Baud Rate to be 1000000;
+3. Set the return delay time to be 0.
+
+
+#### 
 
 
 
-Build two loco-manipulators according to our [Hardware Guide](https://docs.google.com/document/d/1ezbiHfkx8hN_0iZrRt7Yo31gfz1KlZ5sO7tAXYdfni4/edit?usp=sharing).
-
-
-
-##### Configure the manipulators:
-1. Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dynamixel_wizard2/) to modify the ID, baud rate, and latency, with reference to the [guide](https://github.com/ROBOTIS-GIT/DynamixelSDK/issues/316):
-   - Relabel the ID of the motors([1, 2, 3, 4] for the right manipulator and [5, 6, 7, 8] for the left one  );
-   - Modify the Baud Rate to be 1000000
-   - Set the return delay time to be 0
-
+#### fdk
 2. I also modify the installed sdk with LATENCY_TIMER = 1 in the file /dynamixel_sdk/port_handler.py.
 
 3. Check the USBid and enable the device(modify the USBid based on the result of the first command):
