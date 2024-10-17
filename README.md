@@ -120,10 +120,10 @@ To start with, prepare the following materials. Note that for more convenient se
 | 14 | [20ft Ethernet Cable](https://a.co/d/bZTsqN4) | Connect PC to Go1 | $18.99 | 1 |
 | 15 | [20ft USB Extension Cable](https://a.co/d/3ieBPJI) | Connect PC to U2D2 | $18.99 | 1 |
 | 16 | [Bearings 5x8x2.5mm (10pcs)](https://a.co/d/0Kc5usm) | Bearings for the rotational gripper | $8.19 | 1 |
-| 17 | [M2 Screws: 22x4cm, 16x6cm, 40x10cm; Nuts: 8xM2](https://a.co/d/6fwfDas) | Used for manipulator assembly | $8.29 |1|
+| 17 | [M2 Screws: 22x4cm, 24x6cm, 48x10cm; Nuts: 8xM2](https://a.co/d/6fwfDas) | Used for manipulator assembly | $8.29 |1|
 | 18 | [M2.5 Screws: 2x10cm, 2x6cm](https://a.co/d/dnSxZVM) | Used for manipulator assembly | $11.99 |1|
 | 19 | [Spring Washer: 24xM2, 2xM2.5](https://a.co/d/fyb38Bh) | Used for manipulator assembly | $9.99 |1|
-| 20 | [Joystick (optional)](https://a.co/d/8otPZM6) | Read [joystick.py](/teleoperation/joystick.py) and choose a joystick |  |1|
+| 20 | [Joystick (optional)](https://a.co/d/8otPZM6) | Read [joystick.py](/teleoperation/joystick.py) and choose one |  |1|
 | 21 | [Printed parts](/locoman_hardware/print) | 3D print the parts |  |1|
 
 #### Configure the servos:
