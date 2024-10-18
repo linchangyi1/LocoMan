@@ -211,7 +211,7 @@ class Cfg(PrefixProto, cli=False):
 
         # bi-manipulation may destroy the robot if the trajectory is not well collected
         # so be careful to unlock it after testing in simulation
-        lock_real_robot_bimanual = False
+        lock_real_robot_bimanual = True
 
     class switcher(PrefixProto, cli=False):
         min_switch_interval = 3.0 # minimum time interval between two switches
