@@ -118,8 +118,6 @@ Key features:
 ## Hardware Setup <a name="hardware_setup"></a>
 If you have a Unitree GO1 robot but do not plan to build the loco-manipulators, you can skip the hardware setup and still use this repository for locomotion and foot-based manipulation. However, to access the full functionality of LocoMan on a real robot, you will need to build a pair of loco-manipulators.
 
-<!-- Refer to the [LocoMan Hardware Guide](./LocoMan_Hardware/doc/hardware.md) for instructions on setting up the robot. -->
-
 #### Bill of Materials
 To begin, gather the following materials. For easier servo configuration, consider purchasing the [DYNAMIXEL Starter Set](https://www.robotis.us/dynamixel-starter-set-us/) instead of just the DYNAMIXEL U2D2 (ID 9 in the BOM).
 
@@ -201,39 +199,27 @@ Additionally, update the installed SDK by setting LATENCY_TIMER = 1 in the file 
 
 
 ## Notes for Future Development <a name="notes"></a>
-#### Hardware
-- **Motor overheated.** 
-
-- **Rotational Gripper.** To make the manipuator more compact, we design a rotational gripper for it. One drawback 
+#### Operation Modes
+- **Locomotion.** The locomotion planners and state estimator are adapted from Yuxiang's previous projects [Fast and Efficient Locomotion](https://github.com/yxyang/fast_and_efficient) and [CAJun](https://github.com/yxyang/cajun). Since the demos were conducted indoors, the locomotion planners were simplified to handle flat terrain only. If you plan to use the locomotion feature on uneven terrain, you’ll need to enhance it using the mentioned repos.
+- **Loco-Manipulation.** This mode is designed to maintain a target orientation for the gripper during locomotion. Tracking a full 6D pose of the gripper while using only the rest three legs for locomotion presents a much greater challenge, which was not explored in this project.
+- **Single-Arm Manipulation.** The transition from stance to single-gripper manipulation involves two steps: (a) adjusting the torso, and (b) moving the foot and manipulator. Achieving smoother and more efficient transitions remains an open challenge. Additionally, issues like singularity and collision still need to be addressed.
+- **Bimanul-Manipulation.** The transition trajectories were recorded by executing Unitree's high-level controller to perform the action of making a traditional Chinese salute. For details, refer to the [trajectory extraction code](/bimanual_trajectory/trajectory_extraction.py). Note that you may need to collect new trajectories if you change the robot’s hardware configuration or use a different robot.
 
 
 #### Simulation
-- **Simulate before Deploy.** In the paper, we only show the results from real robot deployment. But we also developed the simulation of LocoMan based on the Isaac Gym simulator. And the simulation did help a lot in debuging and protecting the real robot during the development of the system. Therefore, we also open souce the code of the LocoMan simulation.
-- **Parallel Simulation.** The simulation environment was designed to be GPU-parallel at the begining since we planed to leverage RL to train a controller for LocoMan. But later we gave up using learning-based method due to poor tracking performance. Therefore, the current simulation environment is partially parallel. (Each robot has an instance of [the WBC class](./wbc/whole_body_controller.py))
-<img src="source/parallel.png" alt="drawing" width=100%/>
+- **Simulate before Deploy.** Although the paper presents results from real robot deployment, we also developed a simulation of LocoMan using the Isaac Gym simulator. This simulation helps a lot for debugging and safeguarding the real robot during system development. To support future work, we also open souce the code of the LocoMan simulation.
+- **Parallel Simulation.** The simulation environment was originally designed to be GPU-parallel, as we initially planned to leverage RL to train a controller for LocoMan. However, due to poor tracking performance, we moved away from learning-based methods. Therefore, the current simulation environment is only partially parallel, where each robot instance has its own instance of [the WBC class](./wbc/whole_body_controller.py)
+<img src="source/parallel.png" alt="drawing" width=80%/>
 
-- **Collision Model.** In this project, we didn't test the grasbing function of the manipulator. So the gripper is a rigid body in the simulation. To perform manipulation tasks in simulation, you need to generate a new urdf based on the open souce [CAD model](/LocoMan_Hardware). In addition, we modified the collision model of the 
-<img src="source/collision.png" alt="drawing" width=100%/>
+- **Collision Model.** In this project, we did not test the manipulator’s grasping functionality, so the gripper is modeled as a rigid body in simulation. To simulate manipulation tasks, you’ll need to create a new URDF using the open-source [CAD models](/LocoMan_Hardware). In addition, we modified the collision model for the thigh motors. Please ensure the torso doesn't interact with the environment if you use the provided urdf in your project.
+<img src="source/collision.png" alt="drawing" width=80%/>
 
-#### Operation Modes
-- **Locomotion.** The planners and state estimator for locomotion are modified from Yuxiang's previous prjects [fast and efficient locomotion](https://github.com/yxyang/fast_and_efficient) and [CAJun](https://github.com/yxyang/cajun). Since we did the demos indoor, we simplified the locomotion planners by only considering the flat ground terrain. If you intend to use the locomotion function in uneven terrain, please improve it with reference to the mentioned repos.
-- **Loco-Manipulation.** This mode aims to maintain a target orientation of the gripper during locomotion. It would be much more challenging to track a target 6d pose of the gripper and use only the rest three legs for locomotion, which was not explored in this project.
-- **Single-Arm Manipulation.** Transition from stance to single-gripper manipulation consists of two steps: (a) moving the torso; (b) moving the foot and the manipulator. How to achieve more smooth and efficient transition remains unsolved. Besides, the problems of singularity and collission exist.
-- **Bimanul-Manipulation.** The transition trajectories are recorded by excuting Unitree's high-level controller to perform the action of making a traditional Chinese salute. Pleas check out the [code](/bimanual_trajectory/trajectory_extraction.py) for details. Note that you may need to collect new trajectories when you change the hardware configuration of your robot or use a different robot.
 
 #### Teleoperation
-- The function `_update_human_command_callback` in each commander is sourced from the original development of the paper, it doesn't work in this code base because we have polished the other parts. If you use human motion to teleoperate LocoMan, please note that the mentioned functions are just examples and you should overwrite them with new ones.
+- The function `_update_human_command_callback` in each commander comes from the original development in the paper. However, it does not work in this codebase because other parts have been refined. If you plan to teleoperate LocoMan using human motion, please note that these functions are provided as examples and will need to be overwritten with your own implementations.
 
 ## Acknowledgements
 This repository is developed with inspiration from these repositories: [CAJun](https://github.com/yxyang/cajun), [LEAP Hand](https://github.com/leap-hand/LEAP_Hand_API), and [Cheetah-Software](https://github.com/mit-biomimetics/Cheetah-Software/tree/master). We thank the authors for making the repos open source.
-
-
-
-
-
-
-
-
 
 
 
