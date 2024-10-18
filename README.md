@@ -1,6 +1,3 @@
-<!-- <h1 align="center">
-  LocoMan
-</h1> -->
 <h2 align="center">
   LocoMan: Advancing Versatile Quadrupedal Dexterity with Lightweight Loco-Manipulators
 </h2>
@@ -24,8 +21,6 @@
     <a href="https://arxiv.org/abs/2403.18197"><em>Paper</em></a>
 </p>
 
-
-
 <p align="center">
 <img src="source/design.png" alt="drawing" width=60%/>
 <br/>
@@ -33,8 +28,6 @@
 <img src="source/pipeline.png" alt="drawing" width=100%/>
 </p>
 
-<!-- --- -->
-<!-- <br/> -->
 
 ### Table of Contents
 1. [Overview](#overview)
