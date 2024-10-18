@@ -1,7 +1,0 @@
-.idea/
-.vscode/
-*.egg-info/
-*__pycache__*
-**/__pycache__/
-unitree_legged_sdk/
-
