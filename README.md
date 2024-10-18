@@ -158,7 +158,7 @@ Use [Dynamixel Wizard](https://emanual.robotis.com/docs/en/software/dynamixel/dy
    <img src="source/left_manipulator_urdf.png" alt="left_manipulator_urdf" width=60%/>
 
 
-### Setup the robot
+#### Setup the robot
 We use the following setup to perform the demos in the paper. A desktop sends control signals to the robot via an Ethernet cable (ID-14) and to the manipulators via a USB cable (ID-15). Before running the code, make sure to turn on the Go1 robot, which will also power the servos.
 
 <img src="source/deployment.png" alt="deployment" width=80%/>
@@ -173,7 +173,7 @@ Once the hardware is ready, connect the USB to your computer and power on the ro
 
 Additionally, update the installed SDK by setting LATENCY_TIMER = 1 in the file /dynamixel_sdk/port_handler.py.
 
-#### Running LocoMan in Real World <a name="running_real"></a>
+## Running in Real World <a name="running_real"></a>
 1. Similar to running in simulaiton, start ROS and the Joystick in separate terminals:
    ```bash
    roscore
