@@ -200,7 +200,7 @@ Additionally, update the installed SDK by setting LATENCY_TIMER = 1 in the file 
 
 
 #### Simulation
-- **Simulate before Deploy.** Although the paper presents results from real robot deployment, we also developed a simulation of LocoMan using the Isaac Gym simulator. This simulation helps a lot for debugging and safeguarding the real robot during system development. To support future work, we also open souce the code of the LocoMan simulation.
+- **Simulate before Deployment.** Although the paper presents results from real robot deployment, we also developed a simulation of LocoMan using the Isaac Gym simulator. This simulation helps a lot for debugging and safeguarding the real robot during system development. To support future work, we also open souce the code of the LocoMan simulation.
 - **Parallel Simulation.** The simulation environment was originally designed to be GPU-parallel, as we initially planned to leverage RL to train a controller for LocoMan. However, due to poor tracking performance, we moved away from learning-based methods. Therefore, the current simulation environment is only partially parallel, where each robot instance has its own instance of [the WBC class](./wbc/whole_body_controller.py)
 <img src="source/parallel.png" alt="drawing" width=80%/>
 
